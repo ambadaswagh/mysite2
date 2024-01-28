@@ -1,0 +1,28 @@
+{% load i18n %}
+{% load l10n %}
+{% load static %}
+
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_current_language as LANGUAGE_CODE %}
+<html dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}" lang="{{ LANGUAGE_CODE }}">
+
+<body>
+    <form action="{% url 'set_language'  %}" method="POST" style="text-align: center;">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="/">
+        <select name="language" onchange="this.form.submit()">
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.name_local }} ({{ language.code }})
+            </option>
+            {% endfor %}
+        </select>
+    </form>
+<div>
+   <h1>{% trans 'WelcomeHeading' %}</h1>
+   <p>{% trans 'WelcomeMessage' %}</p>
+</div>
+</body>
+</html>

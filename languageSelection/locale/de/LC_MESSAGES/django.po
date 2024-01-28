@@ -1,0 +1,7 @@
+#: .\languageSelection\templates\languageSelection\index.html:2
+msgid "WelcomeHeading"
+msgstr "Willkommen auf unserer Seite!"
+
+#: .\languageSelection\templates\languageSelection\index.html:3
+msgid "WelcomeMessage"
+msgstr "Hier findet Ihr Umfragen."

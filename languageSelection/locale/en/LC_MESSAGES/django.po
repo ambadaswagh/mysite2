@@ -1,0 +1,5 @@
+msgid "WelcomeHeading"
+msgstr "Welcome to our site!"
+
+msgid "WelcomeMessage"
+msgstr "You can find surveys here."
